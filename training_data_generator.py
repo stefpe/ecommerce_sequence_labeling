@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-SHOPPING_URL = 'https://www.google.com/search?q=smartphones&source=lnms&tbm=shop&start='
+SHOPPING_URL = 'https://www.google.com/search?q=mobile+phone&hl=EN&source=lnms&tbm=shop&uule=w+CAIQICINVW5pdGVkIFN0YXRlcw&start='
 OUTPUT_FILE = 'data.xlsx'
 
 
@@ -42,7 +42,7 @@ def parse_items(data: dict, items: list):
 
         try:
             stars = str(item.find_all('div')[6]).split('"')[1].replace('\xa0', ' ')
-            if 'Stern' in stars:
+            if 'star' in stars:
                 stars = stars.split(' von')
                 stars = stars[0]
                 data['Stars'].append(stars)
